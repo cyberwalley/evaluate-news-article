@@ -12,3 +12,7 @@ console.log(checkForName);
 
 alert('i exist!!!!!')
 
+export {
+    checkForName,
+    handleSubmit
+}
