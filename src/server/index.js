@@ -6,8 +6,7 @@ var path = require('path')
 const axios = require('axios')
 const express = require('express')
 const bodyParser = require('body-parser');
-//var request = require('request');
-//const mockAPIResponse = require('./mockAPI.js')
+
 
 // Cors for cross origin allowance
 const cors = require('cors');
@@ -36,67 +35,6 @@ app.listen(8082, function () {
     console.log('listening on port 8082!')
 })
 
-/*
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
-*/
-
-
-
-
-
-// GET route
-/*
-app.get('/', function sendData (req, res) {
- 
-  //res.send(projectData);
-
-    var qs = {  
-        key: '30cf1f7e9f8a1359b318a63120c0e602',
-        lang: 'en',
-        txt: name
-    };
-
-    req({
-        url: 'https://api.meaningcloud.com/sentiment-2.1',
-        qs: qs
-
-    }, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-        var dataObj = JSON.parse(body);
-        res.json(dataObj.name);
-        }
-    });
-});
-*/
-/*
-const projectData= [];
-
-app.get('/meaning', function sendData (req, res) {
- 
-    res.send(projectData);
-});
-
-app.post('/meaning', function getData(req, res){
-  newEntry ={
-      subjectivity: req.body.subjectivity,
-      confidence: req.body.confidence,
-      irony: req.body.irony,
-      formText: req.body.formText
-   
-
-  };
-
-  //add most recent entry
-  projectData.push(newEntry);
-  console.log( projectData );
-  
-});
-
-*/
-
-//const data =[];
 app.post('/meaning', (req, res) => {
 const url = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&lang=en&txt=${req.body.formText}`
     axios({
