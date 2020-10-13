@@ -5,7 +5,7 @@ function handleSubmit(event) {
   
 
   console.log("::: Form Submitted :::")
-  fetch('/meaning', {
+  fetch('http://localhost:8082/meaning', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
