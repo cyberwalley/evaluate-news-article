@@ -43,7 +43,8 @@ app.get('/test', function (req, res) {
 */
 
 
-//const dataObj= [];
+
+
 
 // GET route
 /*
@@ -69,9 +70,15 @@ app.get('/', function sendData (req, res) {
     });
 });
 */
-
 /*
-app.post('/add', function getData(req, res){
+const projectData= [];
+
+app.get('/meaning', function sendData (req, res) {
+ 
+    res.send(projectData);
+});
+
+app.post('/meaning', function getData(req, res){
   newEntry ={
       subjectivity: req.body.subjectivity,
       confidence: req.body.confidence,
@@ -82,13 +89,14 @@ app.post('/add', function getData(req, res){
   };
 
   //add most recent entry
-  dataObj.push(newEntry);
+  projectData.push(newEntry);
   console.log( projectData );
   
 });
 
 */
 
+//const data =[];
 app.post('/meaning', (req, res) => {
 const url = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&lang=en&txt=${req.body.formText}`
     axios({
@@ -96,5 +104,5 @@ const url = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&lang=en&tx
         responseType:'json'
 
     }).then(data => res.json(data.data))
-
+        
 })
